@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+     	
+     	<!-- <record id="paperformat_gst" model="report.paperformat"> -->
+      <!--       <field name="name">GST Invoice</field>
+            <field name="default" eval="True" />
+            <field name="format">Letter</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record> -->
+        
+        <report
+        id="tax_invoice_report"
+        model="account.invoice"
+        string="Tax Invoice GST"
+        report_type="qweb-pdf"
+        name="account_invoice_gst.tax_invoice_report_view"
+        file="account_invoice_gst.tax_invoice_report_view"
+        menu="True"
+        />
+        
+    </data>
+</openerp>

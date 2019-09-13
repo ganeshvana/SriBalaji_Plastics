@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--        <record id="inherit_invoice_excel_report" model="ir.ui.view">-->
+        <!--            <field name="name">account.invoice.excel.report</field>-->
+        <!--            <field name="model">account.invoice</field>-->
+        <!--            <field name="inherit_id" ref="account.invoice_form"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <xpath expr="//button[@name='action_invoice_draft']" position="after">-->
+        <!--                    <button name="get_data" type="action" string="Export Excel" class="btn-primary"/>-->
+        <!--                    <button name="get_json" type="action" string="Export JSON" class="btn-primary"/>-->
+        <!--                </xpath>-->
+
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record model="ir.ui.view" id="invoice_excel_report_wizard_form">
+            <field name="name">account.invoice.excel.report.wizard.form</field>
+            <field name="model">account.invoice.excel.report</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Excel ">
+                    <field name="account_ids" widget="many2many_tags"/>
+                    <footer>
+                        <button name="get_data" type="object" string="Export Excel" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window
+                name="Export Invoice Excel"
+                id="invoice_excel"
+                multi="True"
+                key2="client_action_multi"
+                res_model="account.invoice.excel.report"
+                src_model="account.invoice"
+                view_mode="form"
+                target="new"
+                view_type="form"
+        />
+
+        <record model="ir.ui.view" id="invoice_json_report_wizard_form">
+            <field name="name">account.invoice.json.report.wizard.form</field>
+            <field name="model">account.invoice.json.report</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Json ">
+                                        <field name="account_ids" widget="many2many_tags"/>
+
+                    <footer>
+                        <button name="get_json" type="object" string="Export Json" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window
+                name="Export Invoice Json"
+                id="invoice_json"
+                multi="True"
+                key2="client_action_multi"
+                res_model="account.invoice.json.report"
+                src_model="account.invoice"
+                view_mode="form"
+                target="new"
+                view_type="form"
+        />
+    </data>
+</odoo>

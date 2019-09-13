@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record id="account_invoice_form_inherit" model="ir.ui.view">
+		<field name="name">account.invoice.form.inherit</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account.invoice_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='partner_id']" position="after">
+				<field name="e_commerce_gst" attrs="{'invisible': [('company_id', '=',1)]}"/>
+				<field name="reversed_charged" widget="radio" options="{'horizontal': true}" />
+			</xpath>
+		</field>
+	</record>
+	
+	<record id="invoice_form_inherite_vendor" model="ir.ui.view">
+		<field name="name">account.invoice.inherite.form</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account.invoice_supplier_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='partner_id']" position="after">
+				<field name="e_commerce_gst" attrs="{'invisible': [('company_id', '=',1)]}" />
+				<field name="reversed_charged" widget="radio" options="{'horizontal': true}" />
+			</xpath>
+		</field>
+	</record>
+
+</odoo>

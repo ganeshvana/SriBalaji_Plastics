@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+access_advance_tax_user,advance.tax,model_advance_tax,account.group_account_user,1,1,1,1
+access_tax_adjustment_user,tax.adjustment,model_tax_adjustment,account.group_account_user,1,1,1,1
+access_b2b_invoice_user,b2b.invoice,model_b2b_invoice,account.group_account_user,1,1,1,1
+access_b2cl_invoice_user,b2cl.invoice,model_b2cl_invoice,account.group_account_user,1,1,1,1
+access_b2cs_invoice_user,b2cs.invoice,model_b2cs_invoice,account.group_account_user,1,1,1,1
+access_cdnr_invoice_user,cdnr.invoice,model_cdnr_invoice,account.group_account_user,1,1,1,1
+access_docs_data_user,docs.data,model_docs_data,account.group_account_user,1,1,1,1
+access_monthly_gst_statement_excel_user,monthly.gst.statement.excel,model_monthly_gst_statement_excel,account.group_account_user,1,1,1,1
+access_v_excel_output,v.excel.output,model_v_excel_output,account.group_account_user,1,1,1,1
+access_v_json_output,v.json.output,model_v_json_output,account.group_account_user,1,1,1,1
+access_exempt_data,exempt.data,model_exempt_data,account.group_account_user,1,1,1,1
+access_export_invoice,export.invoice,model_export_invoice,account.group_account_user,1,1,1,1
+access_gstr_return,gstr.return,model_gstr_return,account.group_account_user,1,1,1,1
+access_hsn_data,hsn.data,model_hsn_data,account.group_account_user,1,1,1,1
+access_cdnur_invoice_user,cdnur.invoice,model_cdnur_invoice,account.group_account_user,1,1,1,1

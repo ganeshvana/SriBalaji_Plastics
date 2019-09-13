@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_product_gst_tree" model="ir.ui.view">
+            <field name="name">product.gst.tree</field>
+            <field name="model">product.gst</field>
+            <field name="arch" type="xml">
+                <tree string="HSN Code Configuration">
+                    <field name="name" />
+                    <field name="cgst_sale_tax_id" />
+                    <field name="sgst_sale_tax_id" />
+                    <field name="igst_sale_tax_id" />
+                    <field name="cgst_purchase_tax_id" />
+                    <field name="sgst_purchase_tax_id" />
+                    <field name="igst_purchase_tax_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">product.gst.form</field>
+            <field name="model">product.gst</field>
+            <field name="arch" type="xml">
+                <form string="HSN Code Configuration">
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="product_category_id" />
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    
+                    <group string="Sale Taxes">
+                        <group>
+                            <field name="cgst_sale_tax_id" domain="[('type_tax_use', '=', 'sale'), ('tax_type', '=', 'cgst')]"/>
+                            <field name="sgst_sale_tax_id" domain="[('type_tax_use', '=', 'sale'), ('tax_type', '=', 'sgst')]"/>
+                        </group>
+                        <group>
+                            <field name="igst_sale_tax_id" domain="[('type_tax_use', '=', 'sale'), ('tax_type', '=', 'igst')]"/>
+                        </group>
+                    </group>
+                    <group string="Purchase Taxes">
+                        <group>
+                            <field name="cgst_purchase_tax_id" domain="[('type_tax_use', '=', 'purchase'), ('tax_type', '=', 'cgst')]"/>
+                            <field name="sgst_purchase_tax_id" domain="[('type_tax_use', '=', 'purchase'), ('tax_type', '=', 'sgst')]"/>
+                        </group>
+                        <group>
+                            <field name="igst_purchase_tax_id" domain="[('type_tax_use', '=', 'purchase'), ('tax_type', '=', 'igst')]"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="product_gst_list_action">
+            <field name="name">HSN Codes</field>
+            <field name="res_model">product.gst</field>
+            <field name="view_type">form</field>
+            <field name="view_form">form,tree</field>
+        </record>
+        <menuitem id="product_gst_menu" name="HSN Code Config"
+        parent="account.account_account_menu" action="product_gst_list_action"
+        groups="base.group_erp_manager" sequence="10" />
+
+    </data>
+</openerp>

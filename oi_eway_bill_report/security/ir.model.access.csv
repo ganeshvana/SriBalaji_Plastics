@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_invoice_excel_report,invoice.excel.report,model_invoice_excel_report,,1,1,1,1
+access_i_excel_output,i.excel.output,model_i_excel_output,,1,1,1,1
+access_i_json_output,i.json.output,model_i_json_output,,1,1,1,1
+access_account_invoice_excel_report,account.invoice.excel.report,model_account_invoice_excel_report,,1,1,1,1
+access_account_invoice_json_report,account.invoice.json.report,model_account_invoice_json_report,,1,1,1,1

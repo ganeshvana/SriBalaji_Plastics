@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="inherit_invoice_extend" model="ir.ui.view">
+        <field name="name">account.invoice.extend</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='reference']" position="after">
+                    <field name="supply_type"/>
+                    <field name="sub_supply_type"/>
+                    <field name="trans_type"/>
+                    <field name="doc_type"/>
+                    <field name="doc_no"/>
+                    <field name="trans_mode"/>
+                    <field name="trans_distance"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_bank_id']" position="after">
+                    <field name="transporter_name"/>
+                    <field name="transporterid"/>
+                    <field name="trans_doc_no"/>
+                    <field name="trans_doc_date"/>
+                    <field name="vehicle_no"/>
+                    <field name="vehicle_type"/>
+                    <field name="othvalue"/>
+                    <field name="main_hsn_code"/>
+                </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']" position="before">
+                    <field name="max_line_sequence" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']" position="attributes">
+                    <attribute name="context">{'default_sequence': max_line_sequence}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="before">
+                    <field name="sequence2"/>
+                </xpath>
+        </field>
+    </record>
+        <record id="account_invoice_supplier_form" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']" position="before">
+                    <field name="max_line_sequence" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']" position="attributes">
+                    <attribute name="context">{'default_sequence': max_line_sequence}</attribute>
+                </xpath>
+<!--                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="before">-->
+<!--                    <field name="sequence2"/>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>
